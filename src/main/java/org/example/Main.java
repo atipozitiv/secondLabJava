@@ -26,11 +26,11 @@ public class Main {
 
         Circle circle = new Circle(25);
         System.out.println(circle.area());
-        System.out.println(circle.toString());
+        System.out.println(circle);
 
         Rectangle rectangle = new Rectangle(2,3);
         System.out.println(rectangle.area());
-        System.out.println(rectangle.toString());
+        System.out.println(rectangle);
 
         Cylinder cylinder = new Cylinder(new Circle(5), 5);
         System.out.println(cylinder.Volume());

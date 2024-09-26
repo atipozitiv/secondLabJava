@@ -16,7 +16,16 @@ class Circle implements Figure {
     }
     @Override
     public double area() {
-        return 3.14 * this.radius * this.radius;
+        double out;
+        try {
+            if (this.radius == 0) throw new ZeroException("Радиус равен нулю");
+            if (this.radius < 0) throw new BelowZeroException("Радиус меньше нуля");
+            out = 3.14 * this.radius * this.radius;
+        } catch(Exception ex) {
+            System.out.println(ex.getMessage());
+            out = 0;
+        }
+        return out;
     }
     @Override
     public String toString() {
@@ -40,7 +49,16 @@ class Rectangle implements Figure {
     }
     @Override
     public double area() {
-        return height * width;
+        double out;
+        try {
+            if ((height == 0) || (width == 0)) throw new ZeroException("Параметры равны нулю");
+            if ((height < 0) || (width <= 0)) throw new BelowZeroException("Параметры меньше нуля");
+            out = height * width;
+        } catch(Exception ex) {
+            System.out.println(ex.getMessage());
+            out = 0;
+        }
+        return out;
     }
     @Override
     public String toString() {

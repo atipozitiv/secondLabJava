@@ -15,6 +15,15 @@ public class Cylinder {
         setHeight(height);
     }
     double Volume() {
-        return height * base.area();
+        double out;
+        try {
+            if ((height == 0) || (base.area() == 0)) throw new ZeroException("Параметры равны нулю");
+            if ((height < 0) || (base.area() <= 0)) throw new BelowZeroException("Параметры меньше нуля");
+            out = height * base.area();
+        } catch(Exception ex) {
+            System.out.println(ex.getMessage());
+            out = 0;
+        }
+        return out;
     }
 }
